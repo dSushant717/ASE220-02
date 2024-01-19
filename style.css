@@ -1,8 +1,13 @@
 .cover {
-    min-height: 75vh;
+    min-height: 85vh;
 }
 
 .card:hover {
     transform: translateY(-10px);
     transition: 0.7s;
+}
+
+
+@media screen and (min-width : 700px) {
+   
 }
