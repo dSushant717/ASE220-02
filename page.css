@@ -1,6 +1,6 @@
 .box{
     background-color: lightblue;
-    border: 1px solid blue;
+    border: 1px solid navy;
     font-size: 12;
     padding: 2%;
 }
@@ -14,4 +14,9 @@ body {
     background-image: url(images/paws.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.btn:hover {
+    background-color: cyan;
+    transform: scale(1.05);
 }
