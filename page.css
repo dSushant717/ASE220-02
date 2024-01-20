@@ -5,3 +5,13 @@
     padding: 2%;
 }
 
+#Female{
+    background-color: lightpink;
+    border: 1px solid darkviolet;
+}
+
+body {
+    background-image: url(images/paws.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
