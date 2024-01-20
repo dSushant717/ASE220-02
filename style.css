@@ -1,3 +1,9 @@
+body {
+    background-image: url(images/Blue-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
 .cover {
     min-height: 85vh;
 }
@@ -5,9 +11,4 @@
 .card:hover {
     transform: translateY(-10px);
     transition: 0.7s;
-}
-
-
-@media screen and (min-width : 700px) {
-   
 }
