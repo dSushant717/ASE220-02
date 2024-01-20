@@ -2,7 +2,7 @@ body {
     background-image: url(images/Blue-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
 }
 .cover {
     min-height: 85vh;
