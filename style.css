@@ -1,14 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Open+Sans:wght@400;500&family=Raleway:ital,wght@1,700&display=swap');
 body {
     background-image: url(images/Blue-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
 }
+
+h1 {
+    font-family: 'Raleway', sans-serif;
+    /* font-family: 'Bungee Spice', sans-serif; */
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 64px!important;
+}
+
+#text-one {
+    color: #FFD700;
+}
+
+#text-two {
+    color: #FF6F61;
+}
+
+#text-three {
+    color: #3CB371;
+}
+
+.card {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+a.btn-info:hover {
+    border: 1px solid #17a2b8;
+    color: #17a2b8!important;
+    background-color: #fff;
+}
+
+a.btn-danger:hover {
+    border: 1px solid #dc3545;
+    color: #dc3545!important;
+    background-color: #fff;
+}
+
+.box{
+    background-color: lightblue;
+    border: 1px solid blue;
+    font-size: 12;
+    padding: 2%;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+#Female{
+    background-color: lightpink;
+    border: 1px solid darkviolet;
+}
+
 .cover {
     min-height: 85vh;
 }
 
 .card:hover {
     transform: translateY(-10px);
-    transition: 0.7s;
+    transition: 0.9s;
 }
