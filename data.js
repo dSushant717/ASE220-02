@@ -15,7 +15,7 @@ let pets = [
     },
     {
         name: "Luna",
-        image: "images/Labrador_Retriever.webp",
+        image: "images/Maine_coon.webp",
         type: "Cat",
         breed: "Maine Coon",
         sex: "Female",
@@ -29,8 +29,7 @@ let pets = [
     },
     {
         name: "Sandy",
-        image: "images/Labrador_Retriever.webp",
-
+        image: "images/Golden_Retriever.jpg",
         type: "Dog",
         breed: "Golden Retriever",
         sex: "Female",
@@ -44,7 +43,7 @@ let pets = [
     },
     {
         name: "Oliver",
-        image: "images/Labrador_Retriever.webp",
+        image: "images/siamese_cat.jpg",
         type: "Cat",
         breed: "Siamese",
         sex: "Male",
@@ -58,7 +57,7 @@ let pets = [
     },
     {
         name: "Max",
-        image: "images/Labrador_Retriever.webp",
+        image: "images/Labrador_Retriever_dog.webp",
         type: "Dog",
         breed: "Labrador Retriever",
         sex: "Male",
@@ -72,7 +71,7 @@ let pets = [
     },
     {
         name: "Daisy",
-        image: "images/Labrador_Retriever.webp",
+        image: "images/persian_cat.webp",
         type: "Cat",
         breed: "Persian",
         sex: "Female",
@@ -85,7 +84,7 @@ let pets = [
         about: "Daisy is a stunning white Persian cat with a luxurious coat and gentle demeanor.She was surrendered by an owner who could no longer care for her. Daisy is a bitof a diva and loves being the center of attention. She enjoys being groomed andwill happily sit in your lap for hours. She's not fond of loud noises or fastmovements, so a quiet and calm household would be ideal. Daisy is looking for aloving home where she can be pampered and adored."
     },{
         name: "Charlie",
-        image: "images/Labrador_Retriever.webp",
+        image: "images/Dachshund.webp",
         type: "Dog",
         breed: "Dachsund",
         sex: "Male",
@@ -96,10 +95,23 @@ let pets = [
         microchipNumber: "982000367829101",
         status: ["Health checked", "Vaccinations up to date", "Regularly dewormed", "Microchipped"],
         about: "Meet Baxter, a lovable Beagle with a knack for sniffing out fun! Baxter wasrescued from a shelter and has blossomed into a friendly and outgoing boy. Heloves long walks and has a keen sense of smell. He's great with kids and otherdogs, making him the perfect family pet. His favorite pastime is chasing squirrelsin the park and curling up for naps. Baxter is looking for a loving home where hecan share his endless affection and playful spirit."
-    },
+    }, {
+        name: "George",
+        image: "images/british_shorthair_cat.webp",
+        type: "Cat",
+        breed: "British shorthair",
+        sex: "Male",
+        color: "Blue(gray)",
+        spayedNeutered: "Yes",
+        age: "4 years",
+        animalID: "61029",
+        microchipNumber: "985112007651234",
+        status: ["Health checked", "Vaccinations up to date", "Regularly dewormed", "Microchipped"],
+        about: "George is a robust British Shorthair with a striking blue-gray coat and a calm, dignified demeanor. Rescued from a busy city environment, he's adapted well to a quieter life. George enjoys leisurely days, lounging in sunny spots, and watching the world go by. He's not overly demanding for attention but appreciates a good chin scratch and will purr loudly in response. George is a bit reserved at first but becomes a loyal companion once he feels comfortable. He would be perfect for someone seeking a low- maintenance, independent cat" 
+        },
     {
         name: "Bella",
-        image: "images/Labrador_Retriever.webp",
+        image: "images/Boxer_dog.jpg",
         type: "Dog",
         breed: "Boxer",
         sex: "Female",
@@ -113,7 +125,7 @@ let pets = [
     },
     {
         name: "Sophie",
-        image: "images/Labrador_Retriever.webp",
+        image: "images/Labrador_Retriever.png",
         type: "Cat",
         breed: "Ragdoll",
         sex: "Female",
