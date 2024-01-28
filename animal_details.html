@@ -56,7 +56,8 @@
       let photo = '';
       const pic = document.getElementById('image-box');
       let animal = pets[index];
-      photo = '<img class="img-fluid" src="images/${animal.image}.webp" alt="Labrador Retriever">'
+      photo = `<img class="img-fluid" src="${animal.image}" alt="Labrador Retriever">`
+      pic.innerHTML=photo;
     }
     let index=getQueryParam('index');
 		if(index===null) window.location.href='index.html';
