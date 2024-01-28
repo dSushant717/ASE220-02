@@ -35,7 +35,9 @@
       let box = '';
       const container = document.getElementById('detail-box');
       let pet = pets[index];
-      box = `<div class = "box">
+      let genderClass = pet.sex === 'Male' ? 'male-border' : 'female-border';
+      
+      box = `<div class = "box ${genderClass}">
                 <b>Type: </b> ${pet.type} <br>
                 <b>Breed: </b> ${pet.breed} <br>
                 <b>Sex: </b> ${pet.sex} <br>

@@ -11,7 +11,7 @@ h1 {
     /* font-family: 'Bungee Spice', sans-serif; */
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 64px!important;
+    font-size: 64px;
 }
 
 #text-one {
@@ -31,17 +31,14 @@ h1 {
     font-weight: 400;
 }
 
-a.btn-info:hover {
-    border: 1px solid #17a2b8;
-    color: #17a2b8!important;
-    background-color: #fff;
-    transition: 0.7s;
+.btn {
+    color: #fff;
 }
 
-a.btn-danger:hover {
-    border: 1px solid #dc3545;
-    color: #dc3545!important;
-    background-color: #fff;
+a.btn-info:hover {
+    border: 1px solid #17a2b8;
+    color: #17a2b8;
+    background-color: #ffffff;
     transition: 0.7s;
 }
 
@@ -54,11 +51,6 @@ a.btn-danger:hover {
     font-weight: 400;
 }
 
-#Female{
-    background-color: lightpink;
-    border: 1px solid darkviolet;
-}
-
 .cover {
     min-height: 85vh;
 }
@@ -67,3 +59,26 @@ a.btn-danger:hover {
     transform: translateY(-10px);
     transition: 0.7s;
 }
+
+.male-border {
+    border: 4px solid rgb(104, 104, 221);
+}
+
+.female-border {
+    border: 4px solid rgb(205, 98, 155);
+}
+
+.signorina-border {
+    border-color: #FF69B4;
+}
+
+.signorinaButton {
+    background-color: #FF69B4 ;
+}
+
+a.signorinaButton:hover {
+    color: #FF69B4;
+    border-color:#FF69B4 ;
+    transition: 0.7s;
+}
+
