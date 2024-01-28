@@ -44,7 +44,13 @@
                 <b>Age: </b> ${pet.age} <br>
                 <b>Animal ID: </b> ${pet.animalId} <br>
                 <b>Microchip Number: </b> ${pet.microchipNumber} <br>
-                <b>Status: </b> ${pet.status} <br>
+                <b>Status: </b><br>
+                <ul>
+                  <li>${pet.status[0]}</li>
+                  <li>${pet.status[1]}</li>
+                  <li>${pet.status[2]}</li>
+                  <li>${pet.status[3]}</li>
+                </ul>
                 <b>A little Bit About Me:</b> <br>
                 <p> ${pet.about} </p>
                 <a href="index.html" class="btn btn-info text-light"><i class="bi bi-arrow-left"></i> Go Back</a>
@@ -60,6 +66,7 @@
       photo = `<img class="img-fluid" src="${animal.image}" alt="Labrador Retriever">`
       pic.innerHTML=photo;
     }
+
     let index=getQueryParam('index');
 		if(index===null) window.location.href='index.html';
 		else information(index) 
