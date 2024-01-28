@@ -24,7 +24,7 @@ let pets = [
         age: "3 Years",
         animalId: "57281",
         microchipNumber: "981120019776432",
-        status: [],
+        status: ["Health checked", "Vaccinations up to date", "Regularly dewormed", "Microchipped"],
         about: "Luna is a majestic Maine Coon with a fluffy grey coat and striking white markings.She was found as a stray and has since become a gentle and affectionatecompanion. Luna enjoys perching on windowsills, watching birds, and being thecenter of attention. She's a bit shy at first but warms up quickly, especially if youhave treats! Luna would thrive in a calm environment where she can relax and bepampered like the queen she is."
     },
     {
@@ -38,7 +38,7 @@ let pets = [
         age: "7 Years",
         animalId: "41382",
         microchipNumber: "985112004567890",
-        status: [],
+        status: ["Health checked", "Vaccinations up to date", "Regularly dewormed", "Microchipped"],
         about: "Sandy is a heartwarming Golden Retriever with a golden coat as bright as herpersonality. Rescued from a neglectful situation, she has shown incredibleresilience and love for life. Sandy is great with children and other pets, makingher an ideal family dog. She enjoys outdoor adventures, especially swimming andfetching. Sandy is looking for a forever home where she can spread her joy andlove."
     },
     {
@@ -66,7 +66,7 @@ let pets = [
         age: "4 Years",
         animalId: "47920",
         microchipNumber: "985120031478902",
-        status: [],
+        status: ["Health checked", "Vaccinations up to date", "Regularly dewormed", "Microchipped"],
         about: "Max is a charming Chocolate Labrador with a love for life and a tail that neverstops wagging. Rescued from an overcrowded shelter, Max has shown immensegratitude and loyalty to his caregivers. He is full of energy and would thrive in ahome with a backyard or regular access to outdoor activities. Max is great withchildren and other dogs, and he's always up for a game of fetch or a leisurelywalk. His ideal home would be with an active family who can match his energyand zest for life."
     },
     {
@@ -80,7 +80,7 @@ let pets = [
         age: "6 Years",
         animalId: "58329",
         microchipNumber: "981120036712345",
-        status: [],
+        status: ["Health checked", "Vaccinations up to date", "Regularly dewormed", "Microchipped"],
         about: "Daisy is a stunning white Persian cat with a luxurious coat and gentle demeanor.She was surrendered by an owner who could no longer care for her. Daisy is a bitof a diva and loves being the center of attention. She enjoys being groomed andwill happily sit in your lap for hours. She's not fond of loud noises or fastmovements, so a quiet and calm household would be ideal. Daisy is looking for aloving home where she can be pampered and adored."
     },{
         name: "Charlie",
@@ -120,7 +120,7 @@ let pets = [
         age: "6 Years",
         animalId: "50824",
         microchipNumber: "982000360234567",
-        status: [],
+        status: ["Health checked", "Vaccinations up to date", "Regularly dewormed", "Microchipped"],
         about: "Bella is a spirited Boxer with a fawn coat and charming white markings. She wasrescued from a neglectful situation and has shown immense love and gratitudeto her caregivers. Bella is energetic and playful, enjoying activities like runningand playing fetch. She's great with older children and would thrive in a homewhere she can be active and engaged. Bella has a big personality and would be afantastic companion for someone who loves adventure and fun."
     },
     {
