@@ -99,32 +99,31 @@ let pets = [
         about: "Meet Baxter, a lovable Beagle with a knack for sniffing out fun! Baxter wasrescued from a shelter and has blossomed into a friendly and outgoing boy. Heloves long walks and has a keen sense of smell. He's great with kids and otherdogs, making him the perfect family pet. His favorite pastime is chasing squirrelsin the park and curling up for naps. Baxter is looking for a loving home where hecan share his endless affection and playful spirit."
     },
     {
-        name: "Luna",
+        name: "Max",
         image: "images/Labrador_Retriever.webp",
-        type: "Cat",
-        breed: "Maine Coon",
-        sex: "Female",
-        color: "Grey with white markings",
+        type: "Dog",
+        breed: "Labrador Retriever",
+        sex: "Male",
+        color: "Chocolate",
         spayedNeutered: "Yes",
-        age: "3 Years",
-        animalId: "57281",
-        microchipNumber: "981120019776432",
-        status: [],
-        about: "Luna is a majestic Maine Coon with a fluffy grey coat and striking white markings.She was found as a stray and has since become a gentle and affectionatecompanion. Luna enjoys perching on windowsills, watching birds, and being thecenter of attention. She's a bit shy at first but warms up quickly, especially if youhave treats! Luna would thrive in a calm environment where she can relax and bepampered like the queen she is."
+        age: "4 Years",
+        animalId: "47920",
+        microchipNumber: "985120031478902",
+        status: ["Health checked", "Vaccinations up to date","Regularly dewormed", "Microchipped"],
+        about: "Max is a charming Chocolate Labrador with a love for life and a tail that never stops wagging. Rescued from an overcrowded shelter, Max has shown immense gratitude and loyalty to his caregivers. He is full of energy and would thrive in a home with a backyard or regular access to outdoor activities. Max is great with children and other dogs, and he's always up for a game of fetch or a leisurely walk. His ideal home would be with an active family who can match his energy and zest for life."
     },
     {
-        name: "Sandy",
+        name: "Sophie",
         image: "images/Labrador_Retriever.webp",
-
-        type: "Dog",
-        breed: "Golden Retriever",
+        type: "Cat",
+        breed: "Ragdoll",
         sex: "Female",
-        color: "Golden",
+        color: "Seal point with blue eyes",
         spayedNeutered: "Yes",
-        age: "7 Years",
-        animalId: "41382",
-        microchipNumber: "985112004567890",
-        status: [],
-        about: "Sandy is a heartwarming Golden Retriever with a golden coat as bright as herpersonality. Rescued from a neglectful situation, she has shown incredibleresilience and love for life. Sandy is great with children and other pets, makingher an ideal family dog. She enjoys outdoor adventures, especially swimming andfetching. Sandy is looking for a forever home where she can spread her joy andlove."
+        age: "1 year",
+        animalId: "63845",
+        microchipNumber: "985112008765432",
+        status: ["Health checked", "Vaccinations up to date","Regularly dewormed", "Microchipped"],
+        about: "Sophie is a young Ragdoll cat with a soft seal point coat and mesmerizing blue eyes. She was found as a kitten and raised in a foster home. Sophie is incredibly affectionate, often seeking out laps to curl up in. She's playful and enjoys interactive toys, but she's also content to relax and watch the world go by. Sophie gets along well with other pets and would be an excellent addition to a loving family or individual looking for a gentle and loving companion"
     },
 ];
