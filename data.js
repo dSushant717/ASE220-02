@@ -15,7 +15,7 @@ let pets = [
     },
     {
         name: "Luna",
-        image: "images/Maine_coon.webp",
+        image: "images/Maine_coon.jpg",
         type: "Cat",
         breed: "Maine Coon",
         sex: "Female",
@@ -97,7 +97,7 @@ let pets = [
         about: "Meet Baxter, a lovable Beagle with a knack for sniffing out fun! Baxter wasrescued from a shelter and has blossomed into a friendly and outgoing boy. Heloves long walks and has a keen sense of smell. He's great with kids and otherdogs, making him the perfect family pet. His favorite pastime is chasing squirrelsin the park and curling up for naps. Baxter is looking for a loving home where hecan share his endless affection and playful spirit."
     }, {
         name: "George",
-        image: "images/british_shorthair_cat.webp",
+        image: "images/british_shorthair.jpg",
         type: "Cat",
         breed: "British shorthair",
         sex: "Male",
@@ -125,7 +125,7 @@ let pets = [
     },
     {
         name: "Sophie",
-        image: "images/Labrador_Retriever.png",
+        image: "images/Ragdoll_cat.jpg",
         type: "Cat",
         breed: "Ragdoll",
         sex: "Female",

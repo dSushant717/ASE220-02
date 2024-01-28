@@ -35,16 +35,9 @@ h1 {
     color: #fff;
 }
 
-a.btn-info:hover {
-    border: 1px solid #17a2b8;
-    color: #17a2b8;
-    background-color: #ffffff;
-    transition: 0.7s;
-}
-
 .box{
     background-color: lightblue;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     font-size: 12;
     padding: 2%;
     font-family: 'Open Sans', sans-serif;
@@ -54,6 +47,7 @@ a.btn-info:hover {
 .cover {
     min-height: 85vh;
 }
+
 
 .card:hover {
     transform: translateY(-10px);
@@ -72,13 +66,38 @@ a.btn-info:hover {
     border-color: #FF69B4;
 }
 
-.signorinaButton {
-    background-color: #FF69B4 ;
+.male-background {
+    background-color: #b8dde9;
 }
 
-a.signorinaButton:hover {
-    color: #FF69B4;
-    border-color:#FF69B4 ;
+.signorita-background {
+    background-color: #e2bacf;
+}
+
+.femaleButton {
+    background-color: #e689b9;
+}
+
+a.btn-info:hover {
+    border: 1px solid #17a2b8;
+    color: #17a2b8;
+    background-color: #ffffff;
     transition: 0.7s;
 }
+
+a.button-signorita {
+    background-color: #be75a1;
+}
+
+a.button-signorita:hover {
+    border: 1px solid palevioletred;
+    color:#114c4c;
+    background-color: #e5c4d8;
+    transition: 0.7s;
+}
+
+.bg-signorita {
+    background-color: #e689b9;
+}
+
 

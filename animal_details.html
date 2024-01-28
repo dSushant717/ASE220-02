@@ -35,10 +35,16 @@
       let box = '';
       const container = document.getElementById('detail-box');
       let pet = pets[index];
+
+      const dogEmoji = "\u{1F436}";
+      const catEmoji = "\u{1F431}";
+
+      let emojiSpan = pet.type === 'Dog' ? `${dogEmoji}` : `${catEmoji}`;
       let genderClass = pet.sex === 'Male' ? 'male-border' : 'female-border';
-      
-      box = `<div class = "box ${genderClass}">
-                <b>Type: </b> ${pet.type} <br>
+      let backgroundClass = pet.sex === 'Male' ? 'male-background' : 'signorita-background';
+      let backBtnClass = pet.sex === 'Male' ? 'btn-info' : 'button-signorita';
+      box = `<div class = "box ${genderClass} ${backgroundClass}">
+                <b>Type: </b> ${pet.type} ${emojiSpan} <br>
                 <b>Breed: </b> ${pet.breed} <br>
                 <b>Sex: </b> ${pet.sex} <br>
                 <b>Color: </b> ${pet.color} <br>
@@ -55,8 +61,9 @@
                 </ul>
                 <b>A little Bit About Me:</b> <br>
                 <p> ${pet.about} </p>
-                <a href="index.html" class="btn btn-info text-light"><i class="bi bi-arrow-left"></i> Go Back</a>
+                <a href="index.html" class="btn ${backBtnClass}"><i class="bi bi-arrow-left"></i> Go Back</a>
             </div>`;
+
       
       container.innerHTML = box;
     }
@@ -80,4 +87,7 @@
     crossorigin="anonymous"></script>
 </body>
 
+
+
 </html>
+

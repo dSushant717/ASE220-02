@@ -21,10 +21,17 @@
     <script>
         function createPetCards() {
             const container = document.getElementById('pet-cards');
+            const dogEmoji = "\u{1F436}"; 
+            const catEmoji = "\u{1F431}";
+
             for (let i = 0; i < pets.length; i++) {
                 let pet = pets[i];
                 let borderColorClass = pet.sex === 'Male' ? 'border-info' : 'signorina-border';
-                let buttonColorClass = pet.sex === 'Male' ? 'btn-info': 'signorinaButton';
+                let buttonColorClass = pet.sex === 'Male' ? 'btn-info': 'femaleButton';
+                let emoji = pet.type === 'Dog' ? dogEmoji : catEmoji;
+                let boxClass = pet.sex === 'Male' ? 'badge bg-primary' : 'badge bg-signorita';
+                let boxText = pet.sex === 'Male' ? 'M' : 'F';
+
                 let card = `<div class="card border-5 col-sm-12 col-lg-4 align-self-center m-4 ${borderColorClass}" style="width: 18rem;">
                     <img src="${pet.image}" class="card-img-top" alt="${pet.breed}">
                     <div class="card-body">
@@ -32,12 +39,12 @@
                         <p class="card-text">
                         <ul>
                             <li>Breed: ${pet.breed}</li>
-                            <li>Type: ${pet.type}</li>
+                            <li>Type: ${pet.type} ${emoji}</li>
                             <li>Age: ${pet.age}</li>
-                            <li>Gender: ${pet.sex}</li>
+                            <li>Gender: ${pet.sex} <span class="${boxClass}">${boxText}</span></li>
                         </ul>
                         </p>
-                        <a href="animal_details.html?index=${i}" class="btn ${buttonColorClass}">Details Page</a>
+                        <a href="animal_details.html?index=${i}" class="btn btn-info ${buttonColorClass}">Details Page</a>
                     </div>
                 </div>`;
                 container.innerHTML += card;
