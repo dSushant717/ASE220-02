@@ -1,7 +1,7 @@
 let pets = [
     {
         name: "Baxter",
-        image: "images/Labrador_Retriever.webp",
+        image: "images/beagle_dog.jpg",
         type: "Dog",
         breed: "Beagle",
         sex: "Male",
