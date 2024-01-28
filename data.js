@@ -1,7 +1,7 @@
 let pets = [
     {
         name: "Baxter",
-        image: "images/Labrador_Retriever.webp",
+        image: "images/",
         type: "Dog",
         breed: "Beagle",
         sex: "Male",
@@ -30,7 +30,6 @@ let pets = [
     {
         name: "Sandy",
         image: "images/Labrador_Retriever.webp",
-
         type: "Dog",
         breed: "Golden Retriever",
         sex: "Female",
@@ -44,7 +43,7 @@ let pets = [
     },
     {
         name: "Oliver",
-        image: "images/Labrador_Retriever.webp",
+        image: "images/siamese_cat.jpg",
         type: "Cat",
         breed: "Siamese",
         sex: "Male",
@@ -72,7 +71,7 @@ let pets = [
     },
     {
         name: "Daisy",
-        image: "images/Labrador_Retriever.webp",
+        image: "images/persian_cat.webp",
         type: "Cat",
         breed: "Persian",
         sex: "Female",
@@ -85,7 +84,7 @@ let pets = [
         about: "Daisy is a stunning white Persian cat with a luxurious coat and gentle demeanor.She was surrendered by an owner who could no longer care for her. Daisy is a bitof a diva and loves being the center of attention. She enjoys being groomed andwill happily sit in your lap for hours. She's not fond of loud noises or fastmovements, so a quiet and calm household would be ideal. Daisy is looking for aloving home where she can be pampered and adored."
     },{
         name: "Charlie",
-        image: "images/Labrador_Retriever.webp",
+        image: "images/Dachshund_dog.jpg",
         type: "Dog",
         breed: "Dachsund",
         sex: "Male",
@@ -99,7 +98,7 @@ let pets = [
     },
     {
         name: "Bella",
-        image: "images/Labrador_Retriever.webp",
+        image: "images/Boxer_dog.jpg",
         type: "Dog",
         breed: "Boxer",
         sex: "Female",
@@ -113,7 +112,7 @@ let pets = [
     },
     {
         name: "Sophie",
-        image: "images/Labrador_Retriever.webp",
+        image: "images/Radgoll_cat.jpg",
         type: "Cat",
         breed: "Ragdoll",
         sex: "Female",
