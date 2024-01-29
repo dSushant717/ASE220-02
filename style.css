@@ -63,19 +63,15 @@ h1 {
 }
 
 .signorina-border {
-    border-color: #FF69B4;
+    border-color: #FF94BF;
 }
 
 .male-background {
     background-color: #b8dde9;
 }
 
-.signorita-background {
-    background-color: #e2bacf;
-}
-
-.femaleButton {
-    background-color: #e689b9;
+.signorina-background {
+    background-color: #FFC0CB;
 }
 
 a.btn-info:hover {
@@ -85,19 +81,17 @@ a.btn-info:hover {
     transition: 0.7s;
 }
 
-a.button-signorita {
-    background-color: #be75a1;
+a.signorina-button {
+    background-color: #FF94BF;
+    color: #fff;
 }
 
-a.button-signorita:hover {
-    border: 1px solid palevioletred;
-    color:#114c4c;
-    background-color: #e5c4d8;
+a.signorina-button:hover {
+    border: 1px solid #FF94BF;
+    color:#FF94BF;
+    background-color: #fff;
     transition: 0.7s;
 }
 
-.bg-signorita {
-    background-color: #e689b9;
-}
 
 

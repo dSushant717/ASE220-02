@@ -16,3 +16,20 @@
 - Took part in designing and implementing final changes.
 - Integrated the home page with details pages, ensuring they worked as expected.
 
+### ASE 220 Assignment 3 - A Pet Shelter
+
+## Contributions
+
+## Sushant Dahal
+- javascript for the card in index page createPetCards()
+- contributed for data.js
+
+## Sushant Shrestha
+- Javascript for the animal_details page
+- worked on query string
+
+## Priyanka Pandit
+- added the javascript for distinguishing male and female for createPetCards() and animal_details
+- contributed for data.js
+
+### It was a in person combined effort and everyone worked on almost everything (testing and debugging)
