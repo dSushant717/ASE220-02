@@ -94,7 +94,7 @@ let pets = [
         animalID: "49583",
         microchipNumber: "982000367829101",
         status: ["Health checked", "Vaccinations up to date", "Regularly dewormed", "Microchipped"],
-        about: "Meet Baxter, a lovable Beagle with a knack for sniffing out fun! Baxter wasrescued from a shelter and has blossomed into a friendly and outgoing boy. Heloves long walks and has a keen sense of smell. He's great with kids and otherdogs, making him the perfect family pet. His favorite pastime is chasing squirrelsin the park and curling up for naps. Baxter is looking for a loving home where hecan share his endless affection and playful spirit."
+        about: "Charlie is a spirited Dapple Dachshund with a playful personality. He was found as a stray and has since shown an incredible zest for life. Charlie loves exploring, whether it's a new trail or the corners of his home. He's a bit mischievous and enjoys hiding his toys. Charlie would do well in a home with an individual or family who enjoys fun and adventure. He's small but has a big heart and a lot of love to give."
     }, {
         name: "George",
         image: "images/british_shorthair.jpg",
