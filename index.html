@@ -15,19 +15,28 @@
         <div class="row d-flex justify-content-evenly cover" id="pet-cards">
             
         </div>
+        <div id="lbutton">
+            <button id="loadMoreBtn" class="btn btn-primary mt-3">Load More</button>
+            <p id="endMessage" class="text-muted mt-3" style="display: none;">That's the end of the cards.</p>
+        </div>
+        
     </div>
 
     <script src="data.json"></script>
     <script>
+        let currentPage = 1;
+        const cardsPerPage = 9;
         let pets;
         fetch("data.json")
             .then(response => response.json())
             .then(data => {
                 pets = data;
-                createPetCards(pets);
+                renderPage(currentPage);
             })
             .catch(error => console.error('Error fetching data:', error));
 
+            
+        
         function createPetCards(pets) {
             const container = document.getElementById('pet-cards');
             const dogEmoji = "\u{1F436}"; 
@@ -59,8 +68,31 @@
                 container.innerHTML += card;
             }
         }
-        createPetCards();
+        function renderPage(page) {
+            const startIdx = (page - 1) * cardsPerPage;
+            const endIdx = startIdx + cardsPerPage;
+            const displayedPets = pets.slice(startIdx, endIdx);
+            createPetCards(displayedPets);
+
+            if (endIdx >= pets.length) {
+                disableLoadMoreButton();
+            }
+        }
+        function disableLoadMoreButton() {
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const endMessage = document.getElementById('endMessage');
+
+            loadMoreBtn.disabled = true;
+            endMessage.style.display = 'block';
+        }
+        document.getElementById('loadMoreBtn').addEventListener('click', () => {
+            currentPage++;
+            renderPage(currentPage);
+        });
+
+        
     </script>
+    
     
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
