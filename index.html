@@ -17,9 +17,18 @@
         </div>
     </div>
 
-    <script src="data.js"></script>
+    <script src="data.json"></script>
     <script>
-        function createPetCards() {
+        let pets;
+        fetch("data.json")
+            .then(response => response.json())
+            .then(data => {
+                pets = data;
+                createPetCards(pets);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+
+        function createPetCards(pets) {
             const container = document.getElementById('pet-cards');
             const dogEmoji = "\u{1F436}"; 
             const catEmoji = "\u{1F431}";
