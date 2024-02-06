@@ -16,7 +16,8 @@
             
         </div>
         <div id="lbutton">
-            <button id="loadMoreBtn" class="btn btn-primary mt-3">Load More</button>
+            <button id="prev" class="btn btn-primary mt-3">Previous</button>
+            <button id="next" class="btn btn-primary mt-3">Next</button>
             <p id="endMessage" class="text-muted mt-3" style="display: none;">That's the end of the cards.</p>
         </div>
         
@@ -24,21 +25,26 @@
 
     <script src="data.json"></script>
     <script>
+        let startIdx;
+        let endIdx;
         let currentPage = 1;
         const cardsPerPage = 9;
+        const container = document.getElementById('pet-cards');
         let pets;
         fetch("data.json")
             .then(response => response.json())
             .then(data => {
                 pets = data;
                 renderPage(currentPage);
+                console.log(startIdx)
+                console.log(endIdx)
             })
             .catch(error => console.error('Error fetching data:', error));
+           
 
             
         
         function createPetCards(pets) {
-            const container = document.getElementById('pet-cards');
             const dogEmoji = "\u{1F436}"; 
             const catEmoji = "\u{1F431}";
 
@@ -69,24 +75,39 @@
             }
         }
         function renderPage(page) {
-            const startIdx = (page - 1) * cardsPerPage;
-            const endIdx = startIdx + cardsPerPage;
+            const nextBtn = document.getElementById('next');
+            const prevBtn = document.getElementById('prev');
+
+            startIdx = (page - 1) * cardsPerPage;
+            endIdx = startIdx + cardsPerPage;
             const displayedPets = pets.slice(startIdx, endIdx);
             createPetCards(displayedPets);
 
-            if (endIdx >= pets.length) {
-                disableLoadMoreButton();
+            if (currentPage == Math.ceil(pets.length/cardsPerPage)) {
+                nextBtn.disabled = true;
+                prevBtn.classList.add('disabled');
+            }else{
+                nextBtn.disabled = false;
+                prevBtn.classList.remove('disabled');
+            }
+
+            if (currentPage == 1) {
+                prevBtn.disabled = true;
+                prevBtn.classList.add('disabled');
+            }else{
+                prevBtn.disabled = false;
+                prevBtn.classList.remove('disabled');
             }
         }
-        function disableLoadMoreButton() {
-            const loadMoreBtn = document.getElementById('loadMoreBtn');
-            const endMessage = document.getElementById('endMessage');
 
-            loadMoreBtn.disabled = true;
-            endMessage.style.display = 'block';
-        }
-        document.getElementById('loadMoreBtn').addEventListener('click', () => {
+        document.getElementById('next').addEventListener('click', () => {
             currentPage++;
+            container.innerHTML = '';
+            renderPage(currentPage);
+        });
+        document.getElementById('prev').addEventListener('click', () => {
+            currentPage--;
+            container.innerHTML = '';
             renderPage(currentPage);
         });
 
