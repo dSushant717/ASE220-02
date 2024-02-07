@@ -93,5 +93,49 @@ a.signorina-button:hover {
     transition: 0.7s;
 }
 
+.overlay-content {
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.pet-card:hover .overlay-content {
+    visibility: visible;
+    opacity: 1;
+}
+
+.btn-pink {
+    background-color: #ff69b4; /* Pink color */
+    border-color: #ff69b4; /* Pink border */
+    color: white; /* White text */
+}
+
+.btn-pink:hover {
+    background-color: #ff85b4; 
+    border-color: #ff82b4; 
+}
+
+
+
+.border-male {
+    border: 4px solid #7bade2; 
+}
+
+.border-female {
+    border: 4px solid #ff69b4; 
+}
+
+.bg-pink {
+    background-color: #ff69b4; 
+}
+
+.pet-card .badge {
+    font-size: 0.6em;
+    padding: 0.25em 0.4em; 
+    border-radius: 0.5rem; 
+}
+
 
 
