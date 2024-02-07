@@ -94,6 +94,8 @@ a.signorina-button:hover {
 }
 
 #lbutton{
+    display: flex;
+    justify-content: center;
     text-align: center;
     padding-bottom: 20px;
 }
