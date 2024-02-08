@@ -146,3 +146,18 @@ a.signorina-button:hover {
     /* Add more styling as needed */
 }
 
+#lbutton{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#lbutton> button{
+    background-color: blue;
+}
+
+#pageButtons > button{
+    background-color: blue;
+}
+ 

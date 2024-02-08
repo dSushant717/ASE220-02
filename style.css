@@ -100,4 +100,14 @@ a.signorina-button:hover {
     padding-bottom: 20px;
 }
 
+#lbutton> button{
+    background-color: blue;
+}
+
+#pageButtons > button{
+    background-color: blue;
+}
+
+
+
 

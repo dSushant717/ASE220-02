@@ -106,36 +106,47 @@
             const pageButtonsContainer = document.getElementById('pageButtons');
             pageButtonsContainer.innerHTML = ''; 
 
-            for (let i = startPage; i < startPage + 3 && i <= Math.ceil(pets.length/cardsPerPage); i++) {
+            for (let i = startPage; i <= Math.ceil(pets.length/cardsPerPage); i++) {
                 const button = document.createElement('button');
                 button.classList.add('btn', 'btn-primary','mt-3');
-                button.textContent = i;
-                button.onclick = () => changePage(i);
+                button.setAttribute("id", `${i}`)
+                button.textContent = i
+                button.addEventListener('click', () =>{
+                    changePage(i);
+                }) 
                 pageButtonsContainer.appendChild(button);
-
-
             }
+            const currentPageButton = document.getElementById(`${1}`);
+            currentPageButton.style.backgroundColor = "white";
+            currentPageButton.style.color = "black";
         }
 
         function changePage(page) {
             currentPage = page;
-            if(page>1){
-                renderPageButtons(currentPage - 1);
-            }
-            
+            container.innerHTML = '';
             renderPage(page);
+            const pageButtonsContainer = document.getElementById('pageButtons');
+            const buttons = pageButtonsContainer.getElementsByTagName('button');
+
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].style.backgroundColor = "blue";
+                buttons[i].style.color = "white";
+            }
+
+            const currentPageButton = document.getElementById(`${page}`);
+            currentPageButton.style.backgroundColor = "white";
+            currentPageButton.style.color = "black";
         }
+
 
 
         document.getElementById('next').addEventListener('click', () => {
             currentPage++;
-            container.innerHTML = '';
-            renderPage(currentPage);
+            changePage(currentPage);
         });
         document.getElementById('prev').addEventListener('click', () => {
             currentPage--;
-            container.innerHTML = '';
-            renderPage(currentPage);
+            changePage(currentPage);
         });
 
         
