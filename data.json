@@ -191,7 +191,7 @@
     },
     {
         "name": "Milo",
-        "image": "",
+        "image": "images/milo.webp",
         "type": "Dog",
         "breed": "Border Collie",
         "sex": "Male",
@@ -205,7 +205,7 @@
     },
     {
         "name": "Zoe",
-        "image": "",
+        "image": "images/zoe.jpg",
         "type": "Cat",
         "breed": "Bengal",
         "sex": "Female",
@@ -219,7 +219,7 @@
     },
     {
         "name": "Jasper",
-        "image": "",
+        "image": "images/jasper.webp",
         "type": "Cat",
         "breed": "Siamese",
         "sex": "Male",
@@ -233,7 +233,7 @@
     },
     {
         "name": "Buddy",
-        "image": "",
+        "image": "images/buddy.jpg",
         "type": "Dog",
         "breed": "German Shepherd",
         "sex": "Male",
@@ -247,6 +247,7 @@
     },
     {
         "name": "Molly",
+        "image": "images/molly.jpg",
         "type": "Dog",
         "breed": "Border Collie",
         "sex": "Female",
@@ -265,6 +266,7 @@
     },
     {
         "name": "Leo",
+        "image": "images/leo.webp",
         "type": "Cat",
         "breed": "Maine Coon",
         "sex": "Male",
@@ -283,6 +285,7 @@
     },
     {
         "name": "Rocky",
+        "image": "images/rocky.webp",
         "type": "Dog",
         "breed": "Boxer",
         "sex": "Male",
@@ -301,6 +304,7 @@
     },
     {
         "name": "Mia",
+        "image": "images/mia.jpg",
         "type": "Cat",
         "breed": "Siamese",
         "sex": "Female",
@@ -317,6 +321,7 @@
     },
     {
         "name": "Maximus",
+        "image": "images/maximus.jpeg",
         "type": "Dog",
         "breed": "German Shepherd",
         "sex": "Male",
@@ -335,6 +340,7 @@
     },
     {
         "name": "Lily",
+        "image": "images/persian_cat.webp",
         "type": "Cat",
         "breed": "Persian",
         "sex": "Female",
@@ -353,6 +359,7 @@
     },
     {
         "name": "Oscar",
+        "image": "images/Labrador_Retriever_dog.webp",
         "type": "Dog",
         "breed": "Labrador Retriever",
         "sex": "Male",
@@ -371,6 +378,7 @@
     },
     {
         "name": "Misty",
+        "image": "images/siamese_cat.jpg",
         "type": "Cat",
         "breed": "Siamese",
         "sex": "Female",
@@ -389,6 +397,7 @@
     },
     {
         "name": "Nibbles",
+        "image": "images/Syrian_Hamster.webp",
         "type": "Hamster",
         "breed": "Syrian Hamster",
         "sex": "Male",
@@ -405,6 +414,7 @@
     },
     {
         "name": "Whiskers",
+        "image": "images/Dwarf_Hamster.jpg",
         "type": "Hamster",
         "breed": "Dwarf Hamster",
         "sex": "Female",
@@ -421,6 +431,7 @@
     },
     {
         "name": "Cheeks",
+        "image": "images/Robo_Dwarf_Hamster_young.jpg",
         "type": "Hamster",
         "breed": "Robo Dwarf Hamster",
         "sex": "Male",
@@ -437,6 +448,7 @@
     },
     {
         "name": "Fluffy",
+        "image": "images/Teddy_Bear_Hamster.webp",
         "type": "Hamster",
         "breed": "Teddy Bear Hamster",
         "sex": "Female",
@@ -453,6 +465,7 @@
     },
     {
         "name": "Whiskerina",
+        "image": "images/Dwarf_Hamster_Female.jpg",
         "type": "Hamster",
         "breed": "Dwarf Hamster",
         "sex": "Female",
@@ -469,6 +482,7 @@
     },
     {
         "name": "Chester",
+        "image": "images/Robo_Dwarf_Hamster.jpg",
         "type": "Hamster",
         "breed": "Robo Dwarf Hamster",
         "sex": "Male",
@@ -486,6 +500,7 @@
     {
         "name": "Peanut",
         "type": "Hamster",
+        "image": "images/Robo_Dwarf_Hamster_young.jpg",
         "breed": "Robo Dwarf Hamster",
         "sex": "Male",
         "color": "Sandy Brown",
@@ -501,6 +516,7 @@
     },
     {
         "name": "Cinnamon",
+        "image": "images/Syrian_Hamster.webp",
         "type": "Hamster",
         "breed": "Syrian Hamster",
         "sex": "Female",
@@ -517,6 +533,7 @@
     },
     {
         "name": "Bubbles",
+        "image": "images/Dwarf_Hamster.jpg",
         "type": "Hamster",
         "breed": "Dwarf Hamster",
         "sex": "Male",
@@ -533,6 +550,7 @@
     },
     {
         "name": "Rusty",
+        "image": "images/Golden_Retriever.jpg",
         "type": "Dog",
         "breed": "Golden Retriever",
         "sex": "Male",
@@ -548,6 +566,7 @@
     },
     {
         "name": "Lily",
+        "image": "images/calico.jpg",
         "type": "Cat",
         "breed": "Calico",
         "sex": "Female",
@@ -563,6 +582,7 @@
     },
     {
         "name": "Nibbler",
+        "image": "images/nibbler.jpg",
         "type": "Hamster",
         "breed": "Robo Dwarf Hamster",
         "sex": "Male",
@@ -577,6 +597,7 @@
     },
     {
         "name": "Luna",
+        "image": "images/Labrador_Retriever_dog.webp",
         "type": "Dog",
         "breed": "Labrador Retriever",
         "sex": "Female",
@@ -592,6 +613,7 @@
     },
     {
         "name": "Snowflake",
+        "image": "images/persian_cat.webp",
         "type": "Cat",
         "breed": "Persian",
         "sex": "Female",

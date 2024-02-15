@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Labrador Retriever</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="data.js"></script>
+  <title>Animal Details</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -15,26 +15,47 @@
 
 <body>
 
-  <div class="container-fluid min-vh-100  d-flex justify-content-center align-items-center">
+  <div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center">
     <div class="row">
       <div class="col-12 col-md-6" id="image-box">
-        
+        <!-- Image will be loaded here -->
       </div>
-      <div class="col-12 col-md-6" id ="detail-box">
-       
+      <div class="col-12 col-md-6" id="detail-box">
+        <!-- Details will be loaded here -->
       </div>
     </div>
   </div>
 
   <script>
-    function getQueryParam(key){
-			let queryParams=new URLSearchParams(window.location.search);
-			return queryParams.has(key) ? queryParams.get(key) : null;
-		}
-    function information(index) {
-      let box = '';
-      const container = document.getElementById('detail-box');
-      let pet = pets[index];
+    function getQueryParam(key) {
+      let queryParams = new URLSearchParams(window.location.search);
+      return queryParams.has(key) ? queryParams.get(key) : null;
+    }
+
+    function fetchPetData() {
+      fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+          const index = getQueryParam('index');
+          if (index !== null && data[index]) {
+            displayPetDetails(data[index]);
+          } else {
+            // Handle missing or out-of-range index
+            console.error('Pet not found or index query parameter is missing');
+            document.getElementById('detail-box').innerHTML = '<p>Pet not found.</p>';
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    }
+
+    function displayPetDetails(pet) {
+      document.title = pet.name; // Update page title with pet name
+      const imageBox = document.getElementById('image-box');
+      const detailBox = document.getElementById('detail-box');
+
+      imageBox.innerHTML = `<img class="img-fluid" src="${pet.image}" alt="${pet.name}">`;
 
       const dogEmoji = "\u{1F436}";
       const catEmoji = "\u{1F431}";
@@ -43,51 +64,31 @@
       let genderClass = pet.sex === 'Male' ? 'male-border' : 'female-border';
       let backgroundClass = pet.sex === 'Male' ? 'male-background' : 'signorina-background';
       let backBtnClass = pet.sex === 'Male' ? 'btn-info' : 'signorina-button';
-      box = `<div class = "box ${genderClass} ${backgroundClass}">
-                <b>Type: </b> ${pet.type} ${emojiSpan} <br>
-                <b>Breed: </b> ${pet.breed} <br>
-                <b>Sex: </b> ${pet.sex} <br>
-                <b>Color: </b> ${pet.color} <br>
-                <b>Spayed/Neutered: </b> ${pet.spayedNeutered} <br>
-                <b>Age: </b> ${pet.age} <br>
-                <b>Animal ID: </b> ${pet.animalId} <br>
-                <b>Microchip Number: </b> ${pet.microchipNumber} <br>
-                <b>Status: </b><br>
-                <ul>
-                  <li>${pet.status[0]}</li>
-                  <li>${pet.status[1]}</li>
-                  <li>${pet.status[2]}</li>
-                  <li>${pet.status[3]}</li>
-                </ul>
-                <b>A little Bit About Me:</b> <br>
-                <p> ${pet.about} </p>
-                <a href="index.html" class="btn ${backBtnClass}"><i class="bi bi-arrow-left"></i> Go Back</a>
-            </div>`;
 
-      
-      container.innerHTML = box;
+      let statusList = pet.status.map(s => `<li>${s}</li>`).join('');
+      detailBox.innerHTML = `
+      <div class = "box ${genderClass} ${backgroundClass}">
+        <h2>${pet.name}</h2>
+        <p><strong>Type:</strong> ${pet.type}</p>
+        <p><strong>Breed:</strong> ${pet.breed}</p>
+        <p><strong>Sex:</strong> ${pet.sex}</p>
+        <p><strong>Color:</strong> ${pet.color}</p>
+        <p><strong>Spayed/Neutered:</strong> ${pet.spayedNeutered}</p>
+        <p><strong>Age:</strong> ${pet.age}</p>
+        <p><strong>Animal ID:</strong> ${pet.animalId}</p>
+        <p><strong>Microchip Number:</strong> ${pet.microchipNumber}</p>
+        <p><strong>Status:</strong> <ul>${statusList}</ul></p>
+        <p><strong>About:</strong> ${pet.about}</p>
+        <a href="index.html" class="btn btn-info"><i class="bi bi-arrow-left"></i> Go Back</a>
+      </div>
+    `;
     }
 
-    function image(index){
-      let photo = '';
-      const pic = document.getElementById('image-box');
-      let animal = pets[index];
-      photo = `<img class="img-fluid" src="${animal.image}" alt="Labrador Retriever">`
-      pic.innerHTML=photo;
-    }
-
-    let index=getQueryParam('index');
-		if(index===null) window.location.href='index.html';
-		else information(index) 
-    image(index);
+    // Call fetchPetData when the page loads
+    fetchPetData();
   </script>
 
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrM
+
 </body>
-
-
-
 </html>
-
