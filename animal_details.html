@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Animal Details</title>
-  <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -18,10 +18,10 @@
   <div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center">
     <div class="row">
       <div class="col-12 col-md-6" id="image-box">
-        <!-- Image will be loaded here -->
+        
       </div>
       <div class="col-12 col-md-6" id="detail-box">
-        <!-- Details will be loaded here -->
+        
       </div>
     </div>
   </div>
@@ -40,7 +40,6 @@
           if (index !== null && data[index]) {
             displayPetDetails(data[index]);
           } else {
-            // Handle missing or out-of-range index
             console.error('Pet not found or index query parameter is missing');
             document.getElementById('detail-box').innerHTML = '<p>Pet not found.</p>';
           }
@@ -51,16 +50,11 @@
     }
 
     function displayPetDetails(pet) {
-      document.title = pet.name; // Update page title with pet name
+      document.title = pet.name; 
       const imageBox = document.getElementById('image-box');
       const detailBox = document.getElementById('detail-box');
 
       imageBox.innerHTML = `<img class="img-fluid" src="${pet.image}" alt="${pet.name}">`;
-
-      const dogEmoji = "\u{1F436}";
-      const catEmoji = "\u{1F431}";
-
-      let emojiSpan = pet.type === 'Dog' ? `${dogEmoji}` : `${catEmoji}`;
       let genderClass = pet.sex === 'Male' ? 'male-border' : 'female-border';
       let backgroundClass = pet.sex === 'Male' ? 'male-background' : 'signorina-background';
       let backBtnClass = pet.sex === 'Male' ? 'btn-info' : 'signorina-button';
@@ -79,12 +73,11 @@
         <p><strong>Microchip Number:</strong> ${pet.microchipNumber}</p>
         <p><strong>Status:</strong> <ul>${statusList}</ul></p>
         <p><strong>About:</strong> ${pet.about}</p>
-        <a href="index.html" class="btn btn-info"><i class="bi bi-arrow-left"></i> Go Back</a>
+        <a href="index.html" class="btn ${backBtnClass}"><i class="bi bi-arrow-left"></i> Go Back</a>
       </div>
     `;
     }
 
-    // Call fetchPetData when the page loads
     fetchPetData();
   </script>
 

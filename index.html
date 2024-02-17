@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 </head>
 
@@ -34,7 +34,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <a href="animal_details.html" id="petPageButton" class="btn btn-primary">Get to pet page</a>
+                    
                 </div>
             </div>
         </div>
@@ -68,10 +68,23 @@
             const container = document.getElementById('pet-cards');
             container.innerHTML = '';
             pets.forEach((pet, i) => {
-                let borderColorClass = pet.sex === 'Male' ? 'border-info' : 'border-female';
-                let buttonColorClass = pet.sex === 'Male' ? 'btn-primary' : 'btn-pink';
+                let borderColorClass = pet.sex === 'Male' ? 'male-border' : 'female-border';
+                let buttonColorClass = pet.sex === 'Male' ? 'btn-info' : 'signorina-button';
                 let genderIcon = pet.sex === 'Male' ? 'M' : 'F';
-                let petEmoji = pet.type === 'Dog' ? '🐶' : '🐱';
+                const dogEmoji = "\u{1F436}";
+                const catEmoji = "\u{1F431}";
+                const hamsterEmoji = "\u{1F439}";
+
+                let petEmoji;
+                if (pet.type === 'Dog') {
+                    petEmoji = `${dogEmoji}`;
+                }
+                else if (pet.type === 'Cat') {
+                    petEmoji = `${catEmoji}`;
+                }
+                else {
+                    petEmoji = `${hamsterEmoji}`;
+                }
                 let genderBadgeClass = pet.sex === 'Male' ? 'badge bg-primary' : 'badge bg-pink';
                 let cardHtml = `
                     <div class="card pet-card col-sm-12 col-lg-4 align-self-center m-4 ${borderColorClass}" style="width: 18rem;">
@@ -90,12 +103,18 @@
             const pet = pets[index];
             document.getElementById('petDetailsModalLabel').innerText = pet.name + ' Details';
             const modalBody = document.getElementById('petDetailsModal').querySelector('.modal-body');
+            const modalFooter = document.getElementById('petDetailsModal').querySelector('.modal-footer');
+            let buttonColorClass = pet.sex === 'Male' ? 'btn-info' : 'signorina-button';
+
             modalBody.innerHTML = `
                 <p>Breed: ${pet.breed}</p>
                 <p>Type: ${pet.type}</p>
                 <p>Age: ${pet.age}</p>
                 <p>Gender: ${pet.sex}</p>
                 <img src="${pet.image}" class="img-fluid" alt="${pet.name}">
+            `;
+            modalFooter.innerHTML = `
+                <a href="animal_details.html" id="petPageButton" class="btn ${buttonColorClass}">Get to pet page</a>
             `;
             document.getElementById('petPageButton').href = `animal_details.html?index=${index}`;
         }
