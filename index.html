@@ -68,6 +68,8 @@
             const container = document.getElementById('pet-cards');
             container.innerHTML = '';
             pets.forEach((pet, i) => {
+                let index = ((currentPage - 1) * cardsPerPage) + i;
+
                 let borderColorClass = pet.sex === 'Male' ? 'male-border' : 'female-border';
                 let buttonColorClass = pet.sex === 'Male' ? 'btn-info' : 'signorina-button';
                 let genderIcon = pet.sex === 'Male' ? 'M' : 'F';
@@ -92,7 +94,7 @@
                         <div class="card-body text-center">
                             <h5 class="card-title">${pet.name} <span class="${genderBadgeClass}">${genderIcon}</span></h5>
                             <p class="card-text">Breed: ${pet.breed} ${petEmoji}</p>
-                            <a href="#" class="btn ${buttonColorClass}" data-bs-toggle="modal" data-bs-target="#petDetailsModal" onclick="showPetDetails(${i})">Details</a>
+                            <a href="#" class="btn ${buttonColorClass}" data-bs-toggle="modal" data-bs-target="#petDetailsModal" onclick="showPetDetails(${index})">Details</a>
                         </div>
                     </div>`;
                 container.innerHTML += cardHtml;
