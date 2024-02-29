@@ -49,8 +49,8 @@
         <input type="radio" id="female" name="gender" value="female">
         <label for="female">Female</label><br><br>
 
-        <label for="image">Upload Image:</label>
-        <input type="file" id="image" name="image" accept="image/*"><br><br>
+        <label for="image">Upload Image(URL):</label>
+        <input type="url" id="image" name="image"><br><br>
 
         <button id="submit" type="submit">Submit</button>
       </form>
@@ -206,7 +206,7 @@
         let type = document.getElementById("type").value;
         let age = document.getElementById("age").value;
         let gender = document.querySelector('input[name="gender"]:checked').value;
-        let image = document.getElementById("image").files[0];
+        let image = document.getElementById("image");
         const newPet = new Pet(name, breed, type, age, gender, image);
         pets.push(newPet);
         renderPage(currentPage);
@@ -233,7 +233,7 @@
         let age = document.getElementById("age").value;
         let gender = document.querySelector('input[name="gender"]:checked').value;
         let image = document.getElementById("image").files[0];
-        
+
         let petToEdit = pet[index];
         petToEdit.name = name;
         petToEdit.breed = breed;
