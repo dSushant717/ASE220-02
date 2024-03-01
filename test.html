@@ -55,10 +55,6 @@
                             <label for="petAge" class="form-label">Age</label>
                             <input type="text" class="form-control" id="petAge" name="age" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="petImage" class="form-label">Image</label>
-                            <input type="file" class="form-control" id="petImage" name="image" required>
-                        </div>
                         <button type="submit" class="btn btn-primary">Save Pet</button>
 
                     </form>
@@ -141,33 +137,34 @@
         };
 
         $(document).on('click', '.edit-btn', function () {
-            const index = $(this).data('index');
-            const pet = pets[index];
+        const localIndex = $(this).data('index'); // This is the index within the displayed page
+        const globalIndex = ((currentPage - 1) * cardsPerPage) + localIndex; // Calculate the global index
+        const pet = pets[globalIndex];
 
-            $('#petName').val(pet.name);
-            $('#petType').val(pet.type);
-            $('#petBreed').val(pet.breed);
-            $('#petGender').val(pet.sex);
-            $('#petAge').val(pet.age);
+        $('#petName').val(pet.name);
+        $('#petType').val(pet.type);
+        $('#petBreed').val(pet.breed);
+        $('#petGender').val(pet.sex);
+        $('#petAge').val(pet.age);
 
-            $('#petDetailsModalLabel').text('Edit Pet Details');
+        $('#petDetailsModalLabel').text('Edit Pet Details');
+        $('#petDetailsModal').modal('show');
 
-            $('#addPetForm').off('submit').on('submit', function (e) {
-                e.preventDefault();
+        // Update form submission to only attach one event handler
+        $('#addPetForm').off('submit').on('submit', function (e) {
+            e.preventDefault();
 
-                pet.name = $('#petName').val();
-                pet.type = $('#petType').val();
-                pet.breed = $('#petBreed').val();
-                pet.sex = $('#petGender').val();
-                pet.age = $('#petAge').val();
+            // Update the pet object with new details
+            pet.name = $('#petName').val();
+            pet.type = $('#petType').val();
+            pet.breed = $('#petBreed').val();
+            pet.sex = $('#petGender').val();
+            pet.age = $('#petAge').val();
 
-                $('#petDetailsModal').modal('hide'); 
-                renderPage(currentPage);
-                renderPageButtons();
-
-                $('#petDetailsModal').modal('show');
-            });
+            $('#petDetailsModal').modal('hide');
+            renderPage(currentPage); // Refresh the current page to reflect changes
         });
+    });
 
 
         $(document).on('click', '.delete-btn', function () {
