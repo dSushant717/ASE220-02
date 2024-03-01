@@ -23,9 +23,11 @@
   </div>
   <button id="openModal">Add Pet</button>
 
-  <dialog id="myModal" class="modal">
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
     <form id="myForm" method="dialog">
-      <span class="close">&times;</span>
       <label for="name">Name:</label>
       <input type="text" id="name" name="name"><br><br>
 
@@ -53,7 +55,9 @@
 
       <button id="submit" type="submit">Submit</button>
     </form>
-  </dialog>
+  </div>
+</div>
+
 
 
 
@@ -272,23 +276,19 @@
     });
 
 
-    const dialog = document.getElementById("myModal");
-    const openDialogButton = document.getElementById("openModal");
-    const closeDialogButton = document.querySelector(".close"); // Assuming there's only one close button
-
-    openDialogButton.addEventListener("click", () => {
-      dialog.showModal(); // Use showModal() to display the dialog as a modal
-      addPetToCollection(); // Assuming this function initializes form functionality
+    document.getElementById('openModal').addEventListener('click', function() {
+    document.getElementById('myModal').style.display = 'block';
+    addPetToCollection();
     });
 
-    closeDialogButton.addEventListener("click", () => {
-      dialog.close(); // Use close() to close the dialog
+    document.querySelector('.close').addEventListener('click', function() {
+    document.getElementById('myModal').style.display = 'none';
     });
 
-    window.addEventListener("click", (event) => {
-      if (event.target === dialog) {
-        dialog.close(); // Close the dialog when clicking outside of it
-      }
+    window.addEventListener('click', function(event) {
+    if (event.target == document.getElementById('myModal')) {
+        document.getElementById('myModal').style.display = 'none';
+    }
     });
 
 
