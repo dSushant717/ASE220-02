@@ -197,20 +197,30 @@
       document.getElementById('next').disabled = currentPage * cardsPerPage >= pets.length;
     }
 
+    function capitalize(word){
+      let firstLetter = word.charAt(0)
+      let firstLetterCap = firstLetter.toUpperCase()
+      let remainingLetters = word.slice(1)
+      return firstLetterCap + remainingLetters
+    }
+
     function addPetToCollection() {
       document.getElementById("myForm").addEventListener("submit", function (event) {
         event.preventDefault();
 
         let name = document.getElementById("name").value;
         let breed = document.getElementById("breed").value;
-        let type = document.getElementById("type").value;
+        let type = capitalize(document.getElementById("type").value);
         let age = document.getElementById("age").value;
-        let gender = document.querySelector('input[name="gender"]:checked').value;
+        let gender = capitalize(document.querySelector('input[name="gender"]:checked').value);
         let image = document.getElementById("image");
+        
         const newPet = new Pet(name, breed, type, age, gender, image);
         pets.push(newPet);
         renderPage(currentPage);
         renderPageButtons(currentPage);
+        console.log(gender)
+        console.log(type)
 
       });
     }
@@ -232,9 +242,9 @@
         let type = document.getElementById("type").value;
         let age = document.getElementById("age").value;
         let gender = document.querySelector('input[name="gender"]:checked').value;
-        let image = document.getElementById("image").files[0];
+        let image = document.getElementById("image");
 
-        let petToEdit = pet[index];
+        let petToEdit = pets[indexToEdit]; 
         petToEdit.name = name;
         petToEdit.breed = breed;
         petToEdit.type = type;
@@ -242,6 +252,8 @@
         petToEdit.gender = gender;
         petToEdit.image = image;
         });
+
+      
 
     }
 
@@ -259,6 +271,7 @@
         renderPage(currentPage);
       }
     });
+
 
     const modal = document.getElementById("myModal");
     const openModalButton = document.getElementById("openModal");
