@@ -46,3 +46,13 @@
 
  ## Sushant Shrestha
  - Implemented logic to divide the display of pet cards into pages, allowing users to click through "Previous" and "Next" buttons as well as directly select a page number. This feature enhances the user experience by organizing the display of pets and preventing information overload.
+
+ ## Contributions
+
+## Priyanka Pandit
+ - created the Modals for the edit and add pet buttons.
+ ## Sushant Dahal
+ -  added functionality to delete and edit button.
+
+ ## Sushant Shrestha
+ - added functionality to the add pet button.
