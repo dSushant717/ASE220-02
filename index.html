@@ -25,37 +25,37 @@
     <button id="openModal">Add Pet</button>
 
     <div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <form id="myForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br><br>
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="myForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br><br>
 
-        <label for="breed">Breed:</label>
-        <input type="text" id="breed" name="breed"><br><br>
+                <label for="breed">Breed:</label>
+                <input type="text" id="breed" name="breed"><br><br>
 
-        <label for="type">Type:</label>
-        <select id="type" name="type">
-            <option value="Dog">Dog</option>
-            <option value="Cat">Cat</option>
-            <option value="Hamster">Hamster</option>
-        </select><br><br>
+                <label for="type">Type:</label>
+                <select id="type" name="type">
+                    <option value="Dog">Dog</option>
+                    <option value="Cat">Cat</option>
+                    <option value="Hamster">Hamster</option>
+                </select><br><br>
 
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age"><br><br>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age"><br><br>
 
-        <label>Gender:</label><br>
-        <input type="radio" id="male" name="sex" value="Male">
-        <label for="male">Male</label><br>
-        <input type="radio" id="female" name="sex" value="Female">
-        <label for="female">Female</label><br><br>
+                <label>Gender:</label><br>
+                <input type="radio" id="male" name="sex" value="Male">
+                <label for="male">Male</label><br>
+                <input type="radio" id="female" name="sex" value="Female">
+                <label for="female">Female</label><br><br>
 
-        <label for="image">Upload Image:</label>
-        <input type="url" id="image" name="image"><br><br>
+                <label for="image">Upload Image:</label>
+                <input type="url" id="image" name="image"><br><br>
 
-        <button id="submit" type="submit">Submit</button>
-        </form>
-    </div>
+                <button id="submit" type="submit">Submit</button>
+            </form>
+        </div>
     </div>
 
 
@@ -116,7 +116,9 @@
         let currentPage = 1;
         const cardsPerPage = 9;
         let pets;
-        fetch("data.json")
+        const jsonBlobUrl = "https://jsonblob.com/api/jsonBlob/1217954963371450368";
+
+        fetch(`${jsonBlobUrl}?nocache=${new Date().getTime()}`)
             .then(response => response.json())
             .then(data => {
                 pets = data;
@@ -180,38 +182,41 @@
         };
 
         $(document).on('click', '.edit-btn', function () {
-        const localIndex = $(this).data('index'); 
-        const globalIndex = ((currentPage - 1) * cardsPerPage) + localIndex; 
-        const pet = pets[globalIndex];
+            const localIndex = $(this).data('index');
+            const globalIndex = ((currentPage - 1) * cardsPerPage) + localIndex;
+            const pet = pets[globalIndex];
 
-        $('#petName').val(pet.name);
-        $('#petType').val(pet.type);
-        $('#petBreed').val(pet.breed);
-        $('#petGender').val(pet.sex);
-        $('#petAge').val(pet.age);
+            $('#petName').val(pet.name);
+            $('#petType').val(pet.type);
+            $('#petBreed').val(pet.breed);
+            $('#petGender').val(pet.sex);
+            $('#petAge').val(pet.age);
 
-        $('#petDetailsModalLabel').text('Edit Pet Details');
-        $('#petDetailsModal').modal('show');
+            $('#petDetailsModalLabel').text('Edit Pet Details');
+            $('#petDetailsModal').modal('show');
 
-        
-        $('#addPetForm').off('submit').on('submit', function (e) {
-            e.preventDefault();
 
-            pet.name = $('#petName').val();
-            pet.type = $('#petType').val();
-            pet.breed = $('#petBreed').val();
-            pet.sex = $('#petGender').val();
-            pet.age = $('#petAge').val();
+            $('#addPetForm').off('submit').on('submit', function (e) {
+                e.preventDefault();
 
-            $('#petDetailsModal').modal('hide');
-            renderPage(currentPage); 
+                pet.name = $('#petName').val();
+                pet.type = $('#petType').val();
+                pet.breed = $('#petBreed').val();
+                pet.sex = $('#petGender').val();
+                pet.age = $('#petAge').val();
+
+                $('#petDetailsModal').modal('hide');
+                renderPage(currentPage);
+                updateJsonBlob(pets);
+            });
         });
-    });
 
 
         $(document).on('click', '.delete-btn', function () {
             const index = parseInt($(this).data('index'), 10);
             pets.splice(index, 1);
+
+            updateJsonBlob(pets);
 
             const totalPages = Math.ceil(pets.length / cardsPerPage);
             if (currentPage > totalPages) {
@@ -222,23 +227,51 @@
             renderPageButtons();
         });
 
+        function updateJsonBlob(updatedPets) {
+            const url = 'https://jsonblob.com/api/jsonBlob/1217954963371450368';
+
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                body: JSON.stringify(updatedPets)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        console.log("JSONBlob updated successfully.");
+                    } else {
+                        throw new Error('Failed to update JSONBlob.');
+                    }
+                })
+                .catch(error => console.error('Error updating JSONBlob:', error));
+        }
+
 
         function addPetToCollection() {
             document.getElementById("myForm").addEventListener("submit", function (event) {
-            event.preventDefault();
+                event.preventDefault();
 
-            let name = document.getElementById("name").value;
-            let breed = document.getElementById("breed").value;
-            let type = document.getElementById("type").value;
-            let age = document.getElementById("age").value;
-            let sex = document.querySelector('input[name="sex"]:checked').value;
-            let image = document.getElementById("image").value;
-            const newPet = new Pet(name, breed, type, age, sex, image);
-            pets.push(newPet);
-            renderPage(currentPage);
-            renderPageButtons(currentPage);
-            console.log(newPet)
+                let name = document.getElementById("name").value;
+                let breed = document.getElementById("breed").value;
+                let type = document.getElementById("type").value;
+                let age = document.getElementById("age").value;
+                let sex = document.querySelector('input[name="sex"]:checked').value;
+                let image = document.getElementById("image").value;
 
+                const newPet = new Pet(name, breed, type, age, sex, image);
+
+                pets.push(newPet);
+
+                renderPage(currentPage);
+                renderPageButtons(currentPage);
+
+                updateJsonBlob(pets); 
+
+                document.getElementById("myForm").reset();
+                modal.style.display = "none";
             });
         }
 
@@ -248,18 +281,18 @@
         const closeModalButton = document.getElementsByClassName("close")[0];
 
         openModalButton.addEventListener("click", () => {
-        modal.style.display = "block";
-        addPetToCollection();
+            modal.style.display = "block";
+            addPetToCollection();
         });
 
         closeModalButton.addEventListener("click", () => {
-        modal.style.display = "none";
+            modal.style.display = "none";
         });
 
         window.addEventListener("click", (event) => {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
         });
 
 
@@ -287,7 +320,7 @@
             const startIdx = (page - 1) * cardsPerPage;
             const endIdx = startIdx + cardsPerPage;
             const displayedPets = pets.slice(startIdx, endIdx);
-            createPetCards(displayedPets); 
+            createPetCards(displayedPets);
             updateNavigationButtons();
         }
 
