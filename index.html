@@ -101,6 +101,49 @@
         </div>
     </div>
 
+    <!-- Edit Pet Modal -->
+    <div class="modal fade" id="editPetModal" tabindex="-1" aria-labelledby="editPetModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editPetModalLabel">Edit Pet</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editPetForm">
+                        <!-- Form fields similar to addPetForm but for editing -->
+                        <!-- Remember to update IDs and names appropriately -->
+                        <div class="mb-3">
+                            <label for="petName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="petName" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="petType" class="form-label">Type</label>
+                            <input type="text" class="form-control" id="petType" name="type" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="petBreed" class="form-label">Breed</label>
+                            <input type="text" class="form-control" id="petBreed" name="breed" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="petGender" class="form-label">Gender</label>
+                            <input type="text" class="form-control" id="petGender" name="sex" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="petAge" class="form-label">Age</label>
+                            <input type="text" class="form-control" id="petAge" name="age" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" form="editPetForm">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="text-center m-3" id="navigation">
         <button id="prev" class="btn btn-primary">Previous</button>
         <div id="pageButtons" class="d-inline">
@@ -128,12 +171,24 @@
             .catch(error => console.error('Error fetching data:', error));
 
         function Pet(name, breed, type, age, sex, image) {
+            this.id = new Date().getTime() + Math.random().toString(36).substr(2, 9);
             this.name = name;
             this.breed = breed;
             this.type = type;
             this.age = age;
             this.sex = sex;
             this.image = image;
+        }
+
+        function updateURLPage(page) {
+            const url = new URL(window.location);
+            url.searchParams.set('page', page);
+            window.history.pushState({ page }, `Page ${page}`, url);
+        }
+
+        function getPageFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return parseInt(params.get('page'), 10) || 1; // Default to page 1 if no page parameter is found
         }
 
 
@@ -181,34 +236,41 @@
             });
         };
 
+
         $(document).on('click', '.edit-btn', function () {
-            const localIndex = $(this).data('index');
-            const globalIndex = ((currentPage - 1) * cardsPerPage) + localIndex;
-            const pet = pets[globalIndex];
+            const index = $(this).data('index');
+            const pet = pets[index];
+            if (pet) {
+                // Update the form values in the edit modal
+                $('#editPetModal #petName').val(pet.name);
+                $('#editPetModal #petType').val(pet.type);
+                $('#editPetModal #petBreed').val(pet.breed);
+                $('#editPetModal #petGender').val(pet.sex);
+                $('#editPetModal #petAge').val(pet.age);
 
-            $('#petName').val(pet.name);
-            $('#petType').val(pet.type);
-            $('#petBreed').val(pet.breed);
-            $('#petGender').val(pet.sex);
-            $('#petAge').val(pet.age);
+                // Show the edit modal
+                $('#editPetModal').modal('show');
 
-            $('#petDetailsModalLabel').text('Edit Pet Details');
-            $('#petDetailsModal').modal('show');
+                // Handle form submission for editing a pet
+                $('#editPetForm').off('submit').on('submit', function (e) {
+                    e.preventDefault();
 
+                    // Update pet object with new form values
+                    pet.name = $('#petName').val();
+                    pet.type = $('#petType').val();
+                    pet.breed = $('#petBreed').val();
+                    pet.sex = $('#petGender').val();
+                    pet.age = $('#petAge').val();
+                    // You might need to find the pet in the array again if using a different scope
 
-            $('#addPetForm').off('submit').on('submit', function (e) {
-                e.preventDefault();
+                    // Close the modal
+                    $('#editPetModal').modal('hide');
 
-                pet.name = $('#petName').val();
-                pet.type = $('#petType').val();
-                pet.breed = $('#petBreed').val();
-                pet.sex = $('#petGender').val();
-                pet.age = $('#petAge').val();
-
-                $('#petDetailsModal').modal('hide');
-                renderPage(currentPage);
-                updateJsonBlob(pets);
-            });
+                    // Update the UI and JSONBlob accordingly
+                });
+            } else {
+                console.error('Pet not found:', index);
+            }
         });
 
 
@@ -268,7 +330,7 @@
                 renderPage(currentPage);
                 renderPageButtons(currentPage);
 
-                updateJsonBlob(pets); 
+                updateJsonBlob(pets);
 
                 document.getElementById("myForm").reset();
                 modal.style.display = "none";
@@ -322,6 +384,7 @@
             const displayedPets = pets.slice(startIdx, endIdx);
             createPetCards(displayedPets);
             updateNavigationButtons();
+            updateURLPage(page);
         }
 
 
@@ -345,6 +408,13 @@
             document.getElementById('prev').disabled = currentPage === 1;
             document.getElementById('next').disabled = currentPage * cardsPerPage >= pets.length;
         }
+
+        window.onpopstate = function (event) {
+            if (event.state && event.state.page) {
+                currentPage = event.state.page;
+                renderPage(currentPage);
+            }
+        };
 
         document.getElementById('prev').addEventListener('click', () => {
             if (currentPage > 1) {
